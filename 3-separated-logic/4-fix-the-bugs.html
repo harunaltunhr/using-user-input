@@ -8,25 +8,28 @@
   <script>
     /**
      * compares the type and value of two arguments
-     * @param {any} valueA
+     * @param {any} valueA   
      * @param {any} valueB
      * @returns {string}
      */
     function compareValues(valueA, valueB) {
       // no need to check the argument types, they can be anything!
 
-      let comparison;
-      if (typeof valueA === typeof valueB) {
-        comparison += 'different types';
-      } if (valueA === valueB) {
-        comparison += 'same type, different values';
-      } else {
-        comparison += 'strictly equal'
+      let comparison='';
+      comparison= (typeof(valueA) == typeof(valueB)) ? 'same type,': 'different types';
+      if(typeof(valueA) == typeof(valueB) && valueA== valueB ){
+        comparison = 'strictly equal';
+      }  
+      else if(typeof(valueA) == typeof(valueB) && valueA!== valueB){
+        comparison += ' different values';
       }
-
-      if (typeof comparison !== 'boolean') { throw new TypeError() };
-      return comparison;
-    }
+        return comparison;
+      }
+     
+      
+      if (typeof comparison == 'string') { throw new TypeError() };
+      
+    
 
 
     // there are no bugs below this comment, the tests are correct
